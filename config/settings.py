@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth.account',
     # my app
     'core.apps.CoreConfig',
+    'survey.apps.SurveyConfig',
 ]
 
 INTERNAL_IPS = [
