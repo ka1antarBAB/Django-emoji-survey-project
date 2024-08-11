@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # admin template
+    'jazzmin',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,7 +80,9 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            str(BASE_DIR.joinpath('templates'))
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -149,8 +154,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'core.CustomUser'
 
 # all auth settings
-LOGIN_REDIRECT_URL = 'expenses:group-list'
-LOGOUT_REDIRECT_URL = 'expenses:group-list'
+# LOGIN_REDIRECT_URL = 'expenses:group-list'
+# LOGOUT_REDIRECT_URL = 'expenses:group-list'
 
 # config
 ACCOUNT_SESSION_REMEMBER = True
