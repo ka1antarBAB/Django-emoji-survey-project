@@ -3,4 +3,7 @@ from .models import EmojiFeedback
 
 
 class EmojiSurveyForm(forms.Form):
-    emoji = forms.ChoiceField(choices=EmojiFeedback.EMOJI_CHOICES, widget=forms.RadioSelect)
+    emoji = forms.ChoiceField(
+        choices=EmojiFeedback.EMOJI_CHOICES,
+        widget=forms.RadioSelect(attrs={'class': 'form-check-input'})
+    )
