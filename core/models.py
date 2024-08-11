@@ -6,5 +6,4 @@ from django.db import models
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
-    balance = models.PositiveIntegerField(default=0)
 
