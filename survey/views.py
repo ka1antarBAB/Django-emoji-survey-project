@@ -3,7 +3,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib import messages
 
 from survey.forms import EmojiSurveyForm
-from .models import EmojiFeedback
+from .models import Survey
 
 
 # Create your views here.
@@ -13,10 +13,10 @@ def emoji_survey_view(request):
         form = EmojiSurveyForm(request.POST)
         if form.is_valid():
             selected_emoji = form.cleaned_data['emoji']
-            feedback, created = EmojiFeedback.objects.get_or_create(emoji=selected_emoji)
+            feedback, created = Survey.objects.get_or_create(emoji=selected_emoji)
             feedback.count += 1
             feedback.save()
-            messages.success(request, 'Thank you for your feedback!')
+            messages.success(request, ' !نظر شما با موفقیت ثبت شد ')
     if request.method == 'GET':
         form = EmojiSurveyForm()
 
@@ -25,5 +25,5 @@ def emoji_survey_view(request):
 
 @staff_member_required
 def survey_results_view(request):
-    feedbacks = EmojiFeedback.objects.all()
+    feedbacks = Survey.objects.all()
     return render(request, 'survey_results.html', {'feedbacks': feedbacks})

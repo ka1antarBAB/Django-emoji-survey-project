@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import EmojiFeedback
+from .models import Survey
 
 
 # Register your models here.
 
-@admin.register(EmojiFeedback)
+@admin.register(Survey)
 class EmojiFeedbackAdmin(admin.ModelAdmin):
     list_display = ('emoji', 'count')
