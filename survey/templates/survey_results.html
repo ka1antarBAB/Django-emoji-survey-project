@@ -1,66 +1,12 @@
-{#{% extends '_Base.html' %}#}
-{#{% block title %}#}
-{#    emoji feedback result#}
-{#{% endblock title %}#}
-{##}
-{#{% block content %}#}
-{#    {% for feedback in feedbacks %}#}
-{#        <div>#}
-{#            <button>{{ feedback.emoji }}</button> |  <button>{{ feedback.count }}</button>#}
-{#        </div>#}
-{#        <br>#}
-{#    {% endfor %}#}
-{#{% endblock content %}#}
-
 {% extends '_Base.html' %}
 {% block title %}
-    Emoji Feedback Results
+    emoji feedback result
 {% endblock title %}
 
 {% block content %}
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">Emoji Feedback Results</h2>
-        <div class="row">
-            {% for feedback in feedbacks %}
-                <div class="col-md-4 mb-3">
-                    <div class="feedback-card card shadow-sm p-3 mb-5 bg-white rounded">
-                        <div class="card-body text-center">
-                            <button class="btn btn-light btn-lg emoji-btn">
-                                {{ feedback.emoji }}
-                            </button>
-                            <h3 class="mt-3">{{ feedback.count }}</h3>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+    {% for feedback in feedbacks %}
+        <div>
+            <button>{{ feedback.emoji }}</button> |  <button>{{ feedback.count }}</button>
         </div>
-    </div>
+    {% endfor %}
 {% endblock content %}
-
-<!-- Include Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<style>
-    .feedback-card {
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-    .emoji-btn {
-        font-size: 3rem; /* اندازه ایموجی */
-        border: none;
-        background-color: transparent;
-        cursor: default;
-        padding: 10px;
-        transition: transform 0.2s, background-color 0.2s;
-    }
-    .emoji-btn:hover {
-        transform: scale(1.2);
-    }
-    .card-body {
-        padding: 20px;
-    }
-</style>
-
