@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib import messages
 
 from survey.forms import EmojiSurveyForm
 from .models import EmojiFeedback
@@ -15,8 +16,7 @@ def emoji_survey_view(request):
             feedback, created = EmojiFeedback.objects.get_or_create(emoji=selected_emoji)
             feedback.count += 1
             feedback.save()
-        else:
-            return form.errors
+            messages.success(request, 'Thank you for your feedback!')
     if request.method == 'GET':
         form = EmojiSurveyForm()
 
