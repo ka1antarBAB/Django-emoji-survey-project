@@ -6,5 +6,4 @@ app_name = 'survey'
 
 urlpatterns = [
     path('', views.emoji_survey_view, name='emoji_survey'),
-    path('result/', views.survey_results_view, name='survey_results'),
 ]
